@@ -37,7 +37,7 @@
           @empty
             <span class='flow-text center-align'>Nothing to show</span>
           @endforelse
-        {{ Form::submit('Submit Questionnaire', array('class'=>'btn waves-effect waves-light')) }}
+        {{ Form::submit('Submit Questionnaire', array('class'=>'btn btn-primary')) }}
         {!! Form::close() !!}
     </div>
   </div>

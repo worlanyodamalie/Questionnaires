@@ -10,10 +10,10 @@ $(document).ready(function() {
     // });
   
     // will replace .form-g class when referenced
-    var material = '<div class="form-group">' +
+    var material = '<div class="form-group col-md-6">' +
       '<input name="option[]" id="option[]" type="text" class="form-control">' +
       
-      '<label for="option">Options</label>' +
+     
       '<span class="add-option" style="cursor:pointer;">Add Another</span>' +
       '</div>';
   
