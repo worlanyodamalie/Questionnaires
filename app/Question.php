@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     //
-    protected $fillable = ['content','question_type','options','user_id'];
+    protected $fillable = ['content','question_type','option','user_id'];
     
     protected $casts = [
-        'options' => 'array'
+        'option' => 'array'
     ];
 
     public function questionnaire(){

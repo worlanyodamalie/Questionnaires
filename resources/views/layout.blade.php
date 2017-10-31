@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Questionnaire - Polling App</title>
-        
+        {!! MaterializeCSS::include_css() !!}
         <link rel="stylesheet" href="{{asset('css/app.css')}}">    </head>
 
     <body>
@@ -56,6 +56,8 @@
           </div>
       </div>
     </body>
-    
+    <script src="{{ URL::asset('jquery.min.js') }}"></script>
+    {!! MaterializeCSS::include_js() !!}
+    <script src="{{ URL::asset('init.js') }}"></script>
 
 </html>

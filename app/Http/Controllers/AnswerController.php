@@ -21,11 +21,11 @@ class AnswerController extends Controller
       foreach ($arr as $key => $value) {
         $newAnswer = new Answer();
         if (! is_array( $value )) {
-          $newValue = $value['response'];
+          $newValue = $value['answer'];
         } else {
-          $newValue = json_encode($value['response']);
+          $newValue = json_encode($value['answer']);
         }
-        $newAnswer->response = $newValue;
+        $newAnswer->answer = $newValue;
         $newAnswer->question_id = $key;
         $newAnswer->user_id = Auth::id();
         $newAnswer->questionnaire_id = $questionnaire->id;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Questionnaire;
 use App\Answer;
 use App\Http\Requests;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;

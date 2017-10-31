@@ -1,23 +1,25 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-  <div class="card">
+
+<div class="card">
       <div class="card-content">
       <span class="card-title"> {{ $questionnaire->content }}</span>
+      
       <br/>
-      <a href='view/{{$questionnaire->id}}'>Take Survey</a> | <a href="/questionnaire/answers/{{$questionnaire->id}}">View Answers</a> 
+      <a href='view/{{$questionnaire->id}}'>Take Survey</a>  | <a href="/questionnaire/answers/{{$questionnaire->id}}">View Answers</a> 
       
       <div class="divider" style="margin:20px 0px;"></div>
       <p class="flow-text center-align">Questions</p>
       <ul class="collapsible" data-collapsible="expandable">
           @forelse ($questionnaire->questions as $question)
           <li style="box-shadow:none;">
-            <div class="collapsible-header">{{ $question->content }} <a href="/question/{{ $question->id }}/edit" style="float:right;">Edit</a></div>
+            <div class="collapsible-header">{{ $question->content }} </div>
             <div class="collapsible-body">
               <div style="margin:5px; padding:10px;">
                   {!! Form::open() !!}
                     @if($question->question_type === 'text')
-                      {{ Form::text('title')}}
+                      {{ Form::text('content')}}
                     @elseif($question->question_type === 'textarea')
                     <div class="row">
                       <div class="input-field col s12">
@@ -26,14 +28,14 @@
                       </div>
                     </div>
                     @elseif($question->question_type === 'radio')
-                      @foreach($question->options as $key=>$value)
+                      @foreach($question->option as $key=>$value)
                         <p style="margin:0px; padding:0px;">
                           <input type="radio" id="{{ $key }}" />
                           <label for="{{ $key }}">{{ $value }}</label>
                         </p>
                       @endforeach
                     @elseif($question->question_type === 'checkbox')
-                      @foreach($question->options as $key=>$value)
+                      @foreach($question->option as $key=>$value)
                       <p style="margin:0px; padding:0px;">
                         <input type="checkbox" id="{{ $key }}" />
                         <label for="{{$key}}">{{ $value }}</label>
@@ -62,12 +64,10 @@
             </select>
           </div>                
           <div class="input-field col s12">
-            <input name="title" id="title" type="text">
-            <label for="title">Question</label>
+            <input name="content" id="content" type="text">
+            <label for="content">Question</label>
           </div>  
-          <!-- this part will be chewed by script in init.js -->
-          <span class="form-g"></span>
-
+          
           <div class="input-field col s12">
           <button class="btn waves-effect waves-light">Submit</button>
           </div>

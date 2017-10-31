@@ -11,10 +11,8 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', 'QuestionnaireController@home');
+Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::get('/home', 'QuestionnaireController@home');
 Route::get('/questionnaire/new', 'QuestionnaireController@new')->name('questionnaire.new');
 Route::post('/questionnaire/create', 'QuestionnaireController@create')->name('questionnaire.create');
 Route::get('/questionnaire/{questionnaire}', 'QuestionnaireController@show')->name('questionnaire.show');

@@ -19,7 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('questionnaire_id')->unsigned()->index();
             $table->string('content');
             $table->string('question_type');
-            $table->string('options')->nullable();
+            $table->string('option')->nullable();
             $table->timestamps();
         });
     }

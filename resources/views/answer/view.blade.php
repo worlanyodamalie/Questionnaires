@@ -14,8 +14,8 @@
     @forelse ($questionnaire->questions as $item)
     <tr>
       <td>{{ $item->content }}</td>
-      @foreach ($item->responses as $response)
-        <td>{{ $response->response }} <br/>
+      @foreach ($item->answers as $answer)
+        <td>{{ $answer->answer }} <br/>
         
       @endforeach
     </tr>
