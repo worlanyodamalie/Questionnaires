@@ -31,6 +31,9 @@ return [
     |
     */
 
+ 
+
+
     'connections' => [
 
         'sqlite' => [
@@ -54,13 +57,17 @@ return [
             'engine' => null,
         ],
 
+        
+      
+
+        
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'ec2-23-21-184-113.compute-1.amazonaws.com'),
+            'host' => parse_url(getenv("DATABASE_URL"))["host"],
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'ddpn8srbr5thh5'),
-            'username' => env('DB_USERNAME', 'bjoakigrrcsjvg'),
-            'password' => env('DB_PASSWORD', '5d29c8b4400744406150de4319683120ca4139bcb9d4bb7e251aab838637a9bc'),
+            'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+            'username' => parse_url(getenv("DATABASE_URL"))["user"],
+            'password' => parse_url(getenv("CLEARDB_DATABASE_URL"))["pass"],
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
