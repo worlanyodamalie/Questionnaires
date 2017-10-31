@@ -23,57 +23,55 @@ class QuestionnaireController extends Controller
         return view('home',compact('questionnaires'));
     }
 
-      # Show page to create new survey
+     
   public function new() 
   {
-    return view('survey.new');
+    return view('questionnaire.new');
   }
  
-  public function create(Request $request, Survey $survey) 
+  public function create(Request $request, Questionnaire $questionnaire) 
   {
-    $arr = $request->all();
-    // $request->all()['user_id'] = Auth::id();
-    $arr['user_id'] = Auth::id();
-    $surveyItem = $survey->create($arr);
-    return Redirect::to("/survey/{$surveyItem->id}");
+    $reqs = $request->all();
+    $reqs['user_id'] = Auth::id();
+    $ques = $questionnaire->create($reqs);
+    return Redirect::to("/questionnaire/{$ques->id}");
   }
  
-  # retrieve detail page and add questions here
-  public function detail_survey(Survey $survey) 
+  
+  public function show(Questionnaire $questionnaire) 
   {
-    $survey->load('questions.user');
-    return view('survey.detail', compact('survey'));
+    $questionnaire->load('questions.user');
+    return view('questionnaire.show', compact('questionnaire'));
   }
   
  
-  public function edit(Survey $survey) 
-  {
-    return view('survey.edit', compact('survey'));
-  }
+//   public function edit(Survey $survey) 
+//   {
+//     return view('survey.edit', compact('survey'));
+//   }
  
-  # edit survey
-  public function update(Request $request, Survey $survey) 
-  {
-    $survey->update($request->only(['title', 'description']));
-    return redirect()->action('SurveyController@detail_survey', [$survey->id]);
-  }
+//   # edit survey
+//   public function update(Request $request, Survey $survey) 
+//   {
+//     $survey->update($request->only(['title', 'description']));
+//     return redirect()->action('SurveyController@detail_survey', [$survey->id]);
+//   }
  
-  # view survey publicly and complete survey
-  public function view_survey(Survey $survey) 
+ 
+  public function view(Questionnaire $questionnaire) 
   { 
-    $survey->option_name = unserialize($survey->option_name);
-    return view('survey.view', compact('survey'));
+    $questionnaire->options = unserialize($questionnaire->options);
+    return view('questionnaire.view', compact('questionnaire'));
   }
  
-  # view submitted answers from current logged in user
-  public function view_survey_answers(Survey $survey) 
+    public function view_answers(Questionnaire $questionnaire) 
   {
-    $survey->load('user.questions.answers');
-    return view('answer.view', compact('survey'));
+    $questionnaire->load('user.questions.answers');
+    return view('answer.view', compact('questionnaire'));
   }
-  public function delete_survey(Survey $survey)
-  {
-    $survey->delete();
-    return redirect('');
-  }
+//   public function delete_survey(Survey $survey)
+//   {
+//     $survey->delete();
+//     return redirect('');
+//   }
 }
