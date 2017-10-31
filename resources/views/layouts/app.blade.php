@@ -75,9 +75,8 @@
 
     <!-- Scripts -->
     <script src="{{ URL::asset('jquery.min.js') }}"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
     {!! MaterializeCSS::include_js() !!}
-    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ URL::asset('init.js') }}"></script>
     
 </body>
