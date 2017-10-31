@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
   <div class="card">
@@ -14,25 +14,25 @@
             <p class="flow-text">Question {{ $key+1 }} - {{ $question->content }}</p>
                 @if($question->question_type === 'text')
                   <div class="input-field col s12">
-                    <input id="response" type="text" name="{{ $question->id }}[response]">
-                    <label for="response">Answer</label>
+                    <input id="answer" type="text" name="{{ $question->id }}[answer]">
+                    <label for="answer">Answer</label>
                   </div>
                 @elseif($question->question_type === 'textarea')
                   <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" name="{{ $question->id }}[response]"></textarea>
+                    <textarea id="textarea1" class="materialize-textarea" name="{{ $question->id }}[answer]"></textarea>
                     <label for="textarea1">Textarea</label>
                   </div>
                 @elseif($question->question_type === 'radio')
-                  @foreach($question->option_name as $key=>$value)
+                  @foreach($question->option as $key=>$value)
                     <p style="margin:0px; padding:0px;">
-                      <input name="{{ $question->id }}[response]" type="radio" id="{{ $key }}" />
+                      <input name="{{ $question->id }}[answer]" type="radio" id="{{ $key }}" />
                       <label for="{{ $key }}">{{ $value }}</label>
                     </p>
                   @endforeach
                 @elseif($question->question_type === 'checkbox')
-                  @foreach($question->options as $key=>$value)
+                  @foreach($question->option as $key=>$value)
                   <p style="margin:0px; padding:0px;">
-                    <input type="checkbox" id="something{{ $key }}" name="{{ $question->id }}[response]" />
+                    <input type="checkbox" id="something{{ $key }}" name="{{ $question->id }}[answer]" />
                     <label for="something{{$key}}">{{ $value }}</label>
                   </p>
                   @endforeach
