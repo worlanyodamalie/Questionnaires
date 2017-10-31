@@ -66,9 +66,9 @@
             <select class="browser-default" name="question_type" id="question_type">
               <option value="" disabled selected>Choose your option</option>
               <option value="text">Text</option>
-              <option value="textarea">Textarea</option>
-              <option value="checkbox">Checkbox</option>
-              <option value="radio">Radio Buttons</option>
+              <!-- <option value="textarea">Textarea</option> -->
+              <option value="checkbox">Multiple Choice Question</option>
+              <option value="radio">Single Choice Question</option>
             </select>
           </div>                
           <div class="col-md-6">
@@ -78,7 +78,7 @@
             
             
           </div>  
-          <!-- this part will be chewed by script in init.js -->
+         
           <span class="form-g"></span>
 
           <div class=" form-group">

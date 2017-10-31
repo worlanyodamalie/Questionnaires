@@ -6,7 +6,8 @@
   <thead>
     <tr>
         <th data-field="id">Question</th>
-        <th data-field="name">Answers</th>
+        <th data-field="something"> </th>
+        <th data-field="answer">Answers</th>
     </tr>
   </thead>
 
@@ -14,6 +15,7 @@
     @forelse ($questionnaire->questions as $item)
     <tr>
       <td>{{ $item->content }}</td>
+      <td> </td>
       @foreach ($item->answers as $answer)
         <td>{{ $answer->answer }} <br/>
         
@@ -22,7 +24,7 @@
     @empty
       <tr>
         <td>
-          No answers provided by you for this Survey
+          No answers provided 
         </td>
         <td></td>
       </tr>

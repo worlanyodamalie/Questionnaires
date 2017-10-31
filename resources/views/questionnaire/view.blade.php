@@ -3,7 +3,7 @@
 @section('content')
   <div class="card">
       <div class="card-content">
-      <span class="card-title"> Start taking Survey</span>
+      <span class="card-title"> Questionnaires</span>
       <p>
         <span class="flow-text">{{ $questionnaire->content }}</span> <br/>
       </p>
@@ -15,13 +15,9 @@
                 @if($question->question_type === 'text')
                   <div class="input-field col s12">
                     <input id="answer" type="text" name="{{ $question->id }}[answer]">
-                    <label for="answer">Answer</label>
+                    <!-- <label for="answer">Answer</label> -->
                   </div>
-                @elseif($question->question_type === 'textarea')
-                  <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" name="{{ $question->id }}[answer]"></textarea>
-                    <label for="textarea1">Textarea</label>
-                  </div>
+                
                 @elseif($question->question_type === 'radio')
                   @foreach($question->option as $key=>$value)
                     <p style="margin:0px; padding:0px;">

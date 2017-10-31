@@ -45,19 +45,7 @@ class QuestionnaireController extends Controller
     return view('questionnaire.show', compact('questionnaire'));
   }
   
- 
-//   public function edit(Survey $survey) 
-//   {
-//     return view('survey.edit', compact('survey'));
-//   }
- 
-//   # edit survey
-//   public function update(Request $request, Survey $survey) 
-//   {
-//     $survey->update($request->only(['title', 'description']));
-//     return redirect()->action('SurveyController@detail_survey', [$survey->id]);
-//   }
- 
+
  
   public function view(Questionnaire $questionnaire) 
   { 
@@ -70,9 +58,4 @@ class QuestionnaireController extends Controller
     $questionnaire->load('user.questions.answers');
     return view('answer.view', compact('questionnaire'));
   }
-//   public function delete_survey(Survey $survey)
-//   {
-//     $survey->delete();
-//     return redirect('');
-//   }
 }

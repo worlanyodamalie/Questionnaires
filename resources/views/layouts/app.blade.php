@@ -9,8 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Questionnaire') }}</title>
-    <!-- {!! MaterializeCSS::include_css() !!} -->
-    <!-- Styles -->
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
