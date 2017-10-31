@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>{{ config('app.name', 'Questionnaire') }}</title>
+    <!-- {!! MaterializeCSS::include_css() !!} -->
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -75,6 +75,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ URL::asset('jquery.min.js') }}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
+    {!! MaterializeCSS::include_js() !!}
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    <script src="{{ URL::asset('init.js') }}"></script>
+    
 </body>
 </html>
